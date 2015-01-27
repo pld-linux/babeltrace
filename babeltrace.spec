@@ -5,12 +5,12 @@
 Summary:	Trace Format Babel Tower
 Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
-Version:	1.2.3
+Version:	1.2.4
 Release:	1
 License:	MIT
 Group:		Applications/System
 Source0:	http://lttng.org/files/babeltrace/%{name}-%{version}.tar.bz2
-# Source0-md5:	c35b480304ba34aacbfb3934182cdd21
+# Source0-md5:	20a806fa7570e69a91707855a98f3ca6
 Patch0:		%{name}-link.patch
 URL:		http://lttng.org/babeltrace
 BuildRequires:	autoconf >= 2.50
