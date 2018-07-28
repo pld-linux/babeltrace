@@ -5,14 +5,14 @@
 Summary:	Trace Format Babel Tower
 Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
-Version:	1.2.4
-Release:	4
+Version:	1.5.6
+Release:	1
 License:	MIT
 Group:		Applications/System
-Source0:	http://lttng.org/files/babeltrace/%{name}-%{version}.tar.bz2
-# Source0-md5:	20a806fa7570e69a91707855a98f3ca6
-Patch0:		%{name}-link.patch
-URL:		http://lttng.org/babeltrace
+Source0:	https://www.efficios.com/files/babeltrace/%{name}-%{version}.tar.bz2
+# Source0-md5:	8ce610461e73f48b9c6beec9ba95dcc3
+Patch0:		%{name}-python.patch
+URL:		http://diamon.org/babeltrace/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 1:2.22.0
@@ -20,7 +20,7 @@ BuildRequires:	libtool >= 2:2
 BuildRequires:	libuuid-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
-%{?with_python:BuildRequires:	python-devel >= 2}
+%{?with_python:BuildRequires:	python3-devel >= 1:3.2}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	glib2 >= 1:2.22.0
@@ -63,17 +63,18 @@ Static Babeltrace libraries.
 %description static -l pl.UTF-8
 Statyczne biblioteki Babeltrace.
 
-%package -n python-babeltrace
-Summary:	Python binding to Babeltrace library
-Summary(pl.UTF-8):	Wiązanie Pythona do biblioteki Babeltrace
+%package -n python3-babeltrace
+Summary:	Python 3 binding to Babeltrace library
+Summary(pl.UTF-8):	Wiązanie Pythona 3 do biblioteki Babeltrace
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	python-babeltrace < 1.5.3
 
-%description -n python-babeltrace
-Python binding to Babeltrace library.
+%description -n python3-babeltrace
+Python 3 binding to Babeltrace library.
 
-%description -n python-babeltrace -l pl.UTF-8
-Wiązanie Pythona do biblioteki Babeltrace.
+%description -n python3-babeltrace -l pl.UTF-8
+Wiązanie Pythona 3 do biblioteki Babeltrace.
 
 %prep
 %setup -q
@@ -102,7 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/babeltrace
 
 %if %{with python}
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/_babeltrace.{la,a}
 %py_postclean
 %endif
 
@@ -161,8 +161,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libbabeltrace-lttng-live.a
 
 %if %{with python}
-%files -n python-babeltrace
+%files -n python3-babeltrace
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/_babeltrace.so
-%{py_sitescriptdir}/babeltrace.py[co]
+%dir %{py3_sitedir}/babeltrace
+%attr(755,root,root) %{py3_sitedir}/babeltrace/_babeltrace.cpython-*.so
+%{py3_sitedir}/babeltrace/*.py
+%{py3_sitedir}/babeltrace/__pycache__
+%{py3_sitedir}/babeltrace-%{version}-py*.egg-info
 %endif

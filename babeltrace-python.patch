@@ -1,0 +1,11 @@
+--- babeltrace-1.5.6/bindings/python/Makefile.am.orig	2018-07-03 21:41:31.000000000 +0200
++++ babeltrace-1.5.6/bindings/python/Makefile.am	2018-07-28 21:00:25.526818768 +0200
+@@ -32,7 +32,7 @@
+ 	touch $@
+ 
+ install-exec-local: build-python-bindings.stamp
+-	@opts="--prefix=$(prefix) --record $(INSTALLED_FILES) --verbose --no-compile $(DISTSETUPOPTS)"; \
++	@opts="--prefix=$(prefix) --record $(INSTALLED_FILES) --verbose --optimize=2 $(DISTSETUPOPTS)"; \
+ 	if [ "$(DESTDIR)" != "" ]; then \
+ 		opts="$$opts --root=$(DESTDIR)"; \
+ 	fi; \
