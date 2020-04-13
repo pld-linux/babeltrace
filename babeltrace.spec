@@ -105,10 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 # packaged as %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/babeltrace
 
-%if %{with python}
-%py_postclean
-%endif
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
