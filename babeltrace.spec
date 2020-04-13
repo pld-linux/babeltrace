@@ -5,16 +5,17 @@
 Summary:	Trace Format Babel Tower
 Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
-Version:	1.5.7
-Release:	2
+Version:	1.5.8
+Release:	1
 License:	MIT
 Group:		Applications/System
 Source0:	https://www.efficios.com/files/babeltrace/%{name}-%{version}.tar.bz2
-# Source0-md5:	41570da109988fcc1e7be90af0281a3c
+# Source0-md5:	5c305d6f4be15bc3562c724f9b5206df
 Patch0:		%{name}-python.patch
-URL:		http://diamon.org/babeltrace/
+URL:		https://babeltrace.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	elfutils-devel >= 0.154
 BuildRequires:	glib2-devel >= 1:2.22.0
 BuildRequires:	libtool >= 2:2
 BuildRequires:	libuuid-devel
@@ -22,7 +23,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 %{?with_python:BuildRequires:	python3-devel >= 1:3.2}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.507
+Requires:	elfutils >= 0.154
 Requires:	glib2 >= 1:2.22.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,6 +43,7 @@ Summary:	Header files for Babeltrace libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek Babeltrace
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	elfutils-devel >= 0.154
 Requires:	glib2-devel >= 1:2.22.0
 Requires:	libuuid-devel
 Requires:	popt-devel
