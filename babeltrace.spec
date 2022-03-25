@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
 # keep 1.x here, babeltrace2 is separate project (see babeltrace2.spec)
 Version:	1.5.8
-Release:	3
+Release:	4
 License:	MIT
 Group:		Applications/System
 Source0:	https://www.efficios.com/files/babeltrace/%{name}-%{version}.tar.bz2
