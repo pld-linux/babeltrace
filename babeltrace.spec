@@ -6,12 +6,12 @@ Summary:	Trace Format Babel Tower
 Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
 # keep 1.x here, babeltrace2 is separate project (see babeltrace2.spec)
-Version:	1.5.8
-Release:	4
+Version:	1.5.11
+Release:	1
 License:	MIT
 Group:		Applications/System
 Source0:	https://www.efficios.com/files/babeltrace/%{name}-%{version}.tar.bz2
-# Source0-md5:	5c305d6f4be15bc3562c724f9b5206df
+# Source0-md5:	ca6b23633a78d3dbcc2aec2cbdc99838
 Patch0:		%{name}-python.patch
 URL:		https://babeltrace.org/
 BuildRequires:	autoconf >= 2.50
