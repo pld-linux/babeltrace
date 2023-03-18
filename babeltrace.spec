@@ -25,6 +25,7 @@ BuildRequires:	popt-devel
 %{?with_python:BuildRequires:	python3-devel >= 1:3.2}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.507
+%{?with_python:BuildRequires:	swig-python >= 2.0.0}
 Requires:	elfutils >= 0.154
 Requires:	glib2 >= 1:2.22.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
