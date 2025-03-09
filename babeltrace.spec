@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Wieża Babel formatów narzędzi śledzących
 Name:		babeltrace
 # keep 1.x here, babeltrace2 is separate project (see babeltrace2.spec)
 Version:	1.5.11
-Release:	
+Release:	2
 License:	MIT
 Group:		Applications/System
 Source0:	https://www.efficios.com/files/babeltrace/%{name}-%{version}.tar.bz2
@@ -83,7 +83,7 @@ Wiązanie Pythona 3 do biblioteki Babeltrace.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %{__libtoolize}
